@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search '{{ search_query }}'
+{% endblock %}
+
+{% block body %}
+    <h1>Results for '{{ search_query }}':</h1>
+    <br>
+    {% if not pages %}
+
+        <p>Sadly no pages follow your search query. Please check for spelling mistakes.</p>
+
+    {% else %}
+
+        <ul>
+            {% for page in pages %}
+                <li><a href="/wiki/{{ page }}">{{ page }}</a></li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+{% endblock %}

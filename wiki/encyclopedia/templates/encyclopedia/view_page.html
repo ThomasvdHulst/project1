@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block body %}
-    <a style="float:right;margin-right:20px" href="">Edit Page</a>
-    {{ page_content|safe }}
+    {% if page_found %}
+        <a style="float:right;margin-right:20px" href="editpage/{{ page_name }}">Edit Page</a>
+        {{ page_content|safe }}
+    {% else %}
+        <h4 style="margin-top: 30px;">Sadly, no results follow your search, please check for spelling mistakes.</h4>
+    {% endif %}
 {% endblock %}
